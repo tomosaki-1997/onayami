@@ -1,0 +1,662 @@
+@charset "UTF-8";
+/* reset */
+body, h1, h2, h3, h4, h5, h6, p, address,
+ul, ol, li, dl, dt, dd, img, form, table, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: none;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 100%;
+	text-align: left;
+	list-style-type: none;
+	border-collapse: collapse;
+	overflow-x: hidden;
+}
+
+textarea { font-size: 100%; vertical-align:middle;}
+img { border-style: none; display: block; }
+hr { display: none; }
+em{font-style: normal}
+input{line-height:auto;vertical-align:middle;}
+strong.more{color:#c30}
+a{text-decoration: none;}
+/* a:visited {color: black;} */
+a{color: black;}
+
+html {
+
+}
+
+button{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    padding: 0;
+    appearance: none;
+}
+
+body {
+	font-family:'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+/* --- */
+
+header {
+    width: 100%;
+    background-color: white;
+    position: fixed;
+    box-shadow: 0 0 2px 1px #3c3c3c4d, 0 0 4px 2px #3c3c3c26;
+    z-index: 5;
+}
+
+.header-banner {
+    padding: 1rem 3rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.header-nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-nav a h1 {
+    font-size: 1rem;
+}
+
+.header-right ul {
+    display: flex;
+}
+
+.header-right li {
+    padding-left:1rem ;
+}
+
+.header-right a.mypage {
+    color: rgb(216, 99, 3);
+    padding-right: 1rem;
+    opacity: 0.8;
+}
+
+.header-right a.mypage:hover {
+    opacity: 1;
+}
+
+.container {
+    width: 100%;
+    background-color: rgba(242, 242, 242, 0.982);
+    padding: 2rem;
+    min-height: 30rem;
+}
+
+.container-white {
+    width: 100%;
+    background-color:white;
+    padding-top: 5rem;
+}
+
+.container-white-detail {
+    width: 100%;
+    background-color:white;
+    padding-top: 5rem;
+    min-height: 55rem;
+}
+
+.container-white-setting {
+    width: 100%;
+    background-color:white;
+    padding-top: 5rem;
+    min-height: 55rem;
+}
+
+.new {
+    padding: 2rem 3rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.new h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    color: rgb(60, 59, 59);
+}
+
+.contents,.contents-detail h2 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.contents,.contents-detail h3 {
+    font-size: 0.9rem;
+}
+
+.contents-list ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    width: 100%;
+}
+
+.contents-list li {
+    width: 48%;
+    box-shadow: 0 20px 40px -10px #0000000f;
+
+
+}
+.contents {
+    flex-wrap: wrap;
+    /* width: 48%; */
+}
+
+.contents a{
+    /* position: relative; */
+    display: block;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: white;
+}
+
+.contents-detail {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.contents-image {
+    width: 20%;
+    align-items: center;
+}
+
+.contents-image img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+}
+
+.contents-title {
+    width: 80%;
+}
+
+.good-count {
+    display: flex;
+}
+
+.contents-title h4 {
+    color: rgb(234, 64, 129);
+    font-size: 1rem;
+}
+
+/* footer */
+footer {
+    padding: 1rem 0;
+    border-top: solid 1px rgb(176, 176, 176);
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+/* ログインフォーム */
+.login {
+    padding: 5rem 30%;
+    text-align: center;
+}
+
+.login form {
+    text-align: center;
+}
+
+.login h1 {
+    text-align: center;
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.login a {
+    text-align: center;
+}
+
+.login input {
+    margin: 0.5rem 0;
+}
+
+.login button {
+    margin: 0.5rem 0;
+}
+
+.alert ,.alert-danger {
+    color: red;
+}
+
+.alert ,.alert-danger li {
+    text-align: center;
+}
+
+/* 新規投稿 */
+.create {
+    padding: 2rem 3rem;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.create input,textarea {
+    width: 100%;
+    margin: 2rem 0;
+}
+
+.create button {
+    float: right;
+}
+
+.create h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.note-editor,.note-frame,.note-toolbar {
+    background-color: white;
+}
+
+.create-title-size {
+    font-size: 1.5rem;
+}
+
+.create-submit {
+    padding-top: 2rem;
+}
+
+.create-submit button {
+    background-color: rgb(79, 120, 243);
+    color: white;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    border-radius: 10%;
+}
+
+.user {
+    display: flex;
+    width: 100%;
+    padding: 1rem 3rem;
+    margin: 0 auto;
+    max-width: 700px;
+    justify-content: space-between;
+}
+
+.user img {
+    display: flex;
+    width: 25%;
+    height: auto;
+}
+
+.user-image img {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    align-self: flex-start;
+}
+
+.user-data {
+    width: 70%;
+}
+
+.users {
+    display: flex;
+    padding-bottom: 1rem;
+    align-items: center;
+}
+
+.users h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.user-edit {
+    margin-left: auto;
+}
+
+.user-edit p:hover {
+    background-color: rgb(233, 233, 233);
+    transition: 0.3s;
+}
+
+.user-edit p {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: solid 1px rgb(238, 238, 238);
+    border-radius: 10%;
+}
+
+.select {
+    display: flex;
+    width: 100%;
+    padding: 1rem 3rem 0;
+    margin: 0 auto;
+    max-width: 700px;
+    justify-content: space-between;
+}
+
+.select-tab {
+    display: flex;
+    width: 50%;
+}
+
+.select-tab a {
+    width: 50%;
+}
+
+.select-tab p {
+    text-align: center;
+}
+
+.select-tab .post {
+    border-bottom: solid 2px orangered;
+}
+
+.select-tab .like-like {
+    border-bottom: solid 2px orangered;
+}
+
+.select {
+    display: flex;
+    width: 100%;
+    padding: 1rem 3rem 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.container-mypage {
+    width: 100%;
+    background-color: rgba(242, 242, 242, 0.982);
+    min-height: 65vh;
+}
+
+.my-create {
+    width: 100%;
+    padding: 0 3rem 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.my-contents a{
+    /* position: relative; */
+    display: block;
+    border-radius: 10px;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    background-color: white;
+}
+
+.my-contents li {
+    margin: 1rem 0;
+    box-shadow: 0 20px 40px -10px #0000000f;
+}
+
+/* 設定 */
+
+.account {
+    width: 100%;
+    padding: 0 3rem 0;
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+.account h1 {
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+.account h2 {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.prof-icon {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.prof-icon a {
+    display: flex;
+}
+
+.profile img {
+    border-radius: 50%;
+}
+
+.profile input {
+    width: 100%;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.profile p {
+    color: rgb(85, 85, 85);
+}
+
+.profile textarea {
+    margin: 0;
+}
+
+.account-edit a {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.account-edit p {
+    text-align: center;
+    padding: 0.5rem;
+    color: white;
+    background-color: rgb(233, 122, 84);
+    border-radius: 10%;
+}
+
+.delete h3 {
+    padding-bottom: 1rem;
+}
+
+.delete a {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete p {
+    text-align: center;
+    padding: 0.5rem;
+    color: white;
+    background-color: rgb(233, 122, 84);
+    border-radius: 10%;
+}
+
+.setting-edit {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 1rem;
+
+}
+
+.setting-edit button {
+    background-color: rgb(255, 107, 58);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10%;
+    font-size: 1rem;
+}
+
+
+.setting-acount {
+    font-size: 1rem;
+}
+
+.create-send-bar {
+    display: flex;
+    justify-content: center;
+}
+
+.create-send {
+    padding-top: 3rem;
+}
+
+.create-send-button {
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.create-send-button-back button {
+    background-color: rgb(208, 208, 208);
+    padding: 0.5rem 1rem;
+    border-radius: 10%;
+    font-size: 1rem;
+}
+
+.create-send-button-post button {
+    background-color: rgb(252, 133, 13);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10%;
+    font-size: 1rem;
+}
+
+
+/* 詳細ページ */
+
+.detail {
+    width: 100%;
+    padding: 0 3rem 0;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+
+.detail h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 2rem 0;
+}
+
+.detail h2 {
+    font-size: 1.3rem;
+}
+
+.detail-prof {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.detail-name {
+    /* display: block; */
+}
+
+.detail-prof h2 {
+    font-weight: bold;
+    padding-left: 1rem;
+}
+
+.detail-icon  img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+}
+
+.good-btn-enabled {
+    background-color: rgb(247, 53, 53);
+    color: white;
+}
+
+.good-btn-disabled {
+    background-color: rgb(246, 246, 246);
+}
+
+.edit-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0;
+    gap: 1rem;
+}
+
+.edit-btn {
+    display: flex;
+    align-items: center;
+    background-color: rgb(252, 90, 21);
+    padding: 0.5rem 1rem;
+    border-radius: 10%;
+    font-size: 1rem;
+}
+
+.edit-btn a {
+    color: rgb(251, 251, 251);
+}
+
+.good-btn button {
+    padding: 0.5rem;
+    border: solid 1px rgb(180, 178, 178);
+    border-radius: 10%;
+    opacity: 0.8;
+}
+
+.good-btn button :hover {
+    opacity: 1;
+    transition: 0.3s;
+}
+
+.delete-btn button {
+    background-color: rgb(208, 208, 208);
+    padding: 0.5rem 1rem;
+    border-radius: 10%;
+    font-size: 1rem;
+}
+
+.edit-delete {
+    display: flex;
+    gap: 1rem;
+}
+
+.error-message {
+    color: rgb(251, 0, 0);
+}
+
+.login-button  {
+    background-color: rgb(255, 129, 75);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 10%;
+    font-size: 1rem;
+}
+
+.login-other {
+    padding-top: 2rem;
+}
+
+.pagination  {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.pagination li {
+    background-color: rgb(255, 255, 255);
+    padding:0 0.3rem;
+    border: solid 0.5px rgba(184, 205, 251, 0.64);
+    /* opacity: 0.5; */
+    
+}
+
+.page-item {
+    color: #000000;
+}
+
+.page-item.active {
+    background-color: rgb(60, 177, 249);
+    color: white;
+}

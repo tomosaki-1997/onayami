@@ -21,7 +21,7 @@ class SummernoteController extends Controller
             'title' => 'required',
             'content'  => 'required',
         ]);
-        
+
         //フォームから受け取ったすべてのinputの値を取得
         $inputs = $request->all();
 
@@ -48,6 +48,9 @@ class SummernoteController extends Controller
         $content->content=$request->content;
         $content->user_id = $id;
         $content->save();
+
+
+
         return redirect('/');
         }
 
@@ -63,7 +66,7 @@ class SummernoteController extends Controller
             'title' => 'required',
             'content'  => 'required',
         ]);
-        
+
         //フォームから受け取ったすべてのinputの値を取得
         $inputs = $request->all();
         $content = Content::find($id);

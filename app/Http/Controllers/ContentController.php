@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Models\Content;
 use App\Models\User;
@@ -14,34 +15,43 @@ class ContentController extends Controller
 {
     /**
      * コンテンツ一覧を表示する
-     * 
+     *
      * @return view
      */
-    public function showList(Content $content)
+    public function showList(Content $content, Request $request)
     {
+
         $contents = Content::orderBy('id', 'desc')->paginate(20);
-        
+        $keyword = $request->input('keyword');
+        $query = Content::query()->orderBy('id','desc');
+
         // $user_id = Auth::id();
         // $contents = Content::with('user')->where('user_id', '=', $user_id)->Paginate(2);
-        
+
+        if(!empty($keyword)){
+            $query->where('content', 'LIKE', "%{$keyword}%")->orderBy('id', 'desc')->paginate(20);
+        }
+        $contents = $query->get();
         $user = User::all();
         // $user_id = $content->user_id;
         // $user = DB::table('users')->where('id', $user_id)->first();
-        
-        $goodContents = Content::withCount('good')->orderBy('good_count', 'desc')->paginate(20);
-        
+
+        $goodContents = $query -> withCount('good')->orderBy('good_count', 'desc')->take(6)->get();
+
+
         // dd($goodContents[0]->good()->count());
-        
-        $goodNum =Content::withCount('good')->get();
-        return view(
-            'content.index',
-            ['contents' => $contents, 'user' => $user, 'goodContents' => $goodContents]
-        );
+
+    //    $goodNum =Content::withCount('good')->get();
+    //    return view(
+    //        'content.index',
+    //        ['contents' => $contents, 'user' => $user, 'goodContents' => $goodContents]
+    //    );
+        return view('content.index', compact('contents', 'keyword', 'user', 'goodContents'));
     }
 
     /**
      * 投稿ページを表示する
-     * 
+     *
      * @return view
      */
     public function showCreate()
@@ -51,7 +61,7 @@ class ContentController extends Controller
 
     /**
      * 投稿確認ページを表示する
-     * 
+     *
      * @return view
      */
     public function showCreateconf()
@@ -61,14 +71,14 @@ class ContentController extends Controller
 
     /**
      * 詳細を表示する
-     * 
+     *
      * @return view
      */
     public function showDetail(Content $content ,$id)
     {
         // $good = DB::table('goods')->where('content_id', $id)->where('user_id', auth()->user()->id)->first();
         // return view('content.detail', compact('content', 'good'));
-        
+
         $content = Content::find($id);
         $user_id = $content->user_id;
         $user = DB::table('users')->where('id', $user_id)->first();
@@ -86,16 +96,16 @@ class ContentController extends Controller
     {
 
         $names =Content::pluck('id');
-        
+
         // $random = Content::inRandomOrder()->first('id');
-        
+
         $random = rand(72,76);
         $array = [$random];
         // dd($random);
 
         // $random = Arr::random($names);
         $content = DB::table('contents')->where('id', $random)->first();
-        
+
         $user_id = $content->user_id;
         $user = DB::table('users')->where('id', $user_id)->first();
 
@@ -107,12 +117,12 @@ class ContentController extends Controller
 
     /**
      * マイページを表示する
-     * 
+     *
      * @return view
      */
     public function showMypage(Content $content)
     {
-        
+
         $user_id = Auth::id();
         $contents = Content::with('user')->where('user_id', '=', $user_id)->paginate();
         $good = Content::with('good')->where('user_id', '=', $user_id)->paginate();
@@ -124,11 +134,11 @@ class ContentController extends Controller
         );
     }
 
-    
+
 
     /**
      * ユーザーページを表示する
-     * 
+     *
      * @return view
      */
     public function showUserpage($id)
@@ -143,7 +153,7 @@ class ContentController extends Controller
 
     /**
      * いいね一覧を表示する
-     * 
+     *
      * @return view
      */
     public function showMylike(Content $content)
@@ -161,9 +171,11 @@ class ContentController extends Controller
         );
     }
 
+
+
     /**
      * 設定を表示する
-     * 
+     *
      * @return view
      */
     public function showSetting(Content $content)
@@ -172,4 +184,12 @@ class ContentController extends Controller
 
         return view('content.setting');
     }
+
+
+    public function show(Content $content)
+   {
+
+       $nice=Nice::where('content_id', $post->id)->where('user_id', auth()->user()->id)->first();
+       return view('contetnt.show', compact('content', 'good'));
+   }
 }

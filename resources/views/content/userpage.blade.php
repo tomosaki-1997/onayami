@@ -14,7 +14,11 @@
     <div class="container-white">
         <div class="user">
             <div class="user-image">
-                <img src="{{asset('storage/images/'.$user->image)}}" alt="">
+                @if(Auth::user()->image)
+                <img src="{{asset('storage/images/'.Auth::user()->image)}}" alt="">
+                @else
+                <img src="{{asset('storage/images/default.png')}}" alt="">
+                @endif
             </div>
             <div class="user-data">
                 <div class=users>
@@ -50,7 +54,11 @@
                         <a class="link" href="/detail/{{ $content->id}}">
                             <div class="contents-detail">
                                 <div class="contents-image">
-                                    <img src="{{asset('storage/images/'.$content->user->image)}}" alt="">
+                                    @if($content->image)
+                                    <img src="{{asset('storage/images/'.Auth::user()->image)}}" alt="">
+                                    @else
+                                    <img src="{{asset('storage/images/default.png')}}" alt="">
+                                    @endif
                                 </div>
                                 <div class="contents-title">
                                     <h2>{{ $content->title }}</h2>

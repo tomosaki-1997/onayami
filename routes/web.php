@@ -25,9 +25,6 @@ Route::get('/detail/{id}',
 ('detail');
 
 // ランダム
-Route::get('/random',
-'App\Http\Controllers\ContentController@showRandom')->name
-('randam');
 
 // 投稿ページ
 Route::get('/create',
@@ -70,6 +67,11 @@ Route::get('/like',
 Route::get('/userpage/{id}',
 'App\Http\Controllers\ContentController@showUserpage')->name
 ('');
+
+// 管理者用画面
+Route::get('/profile',
+ 'App\Http\Controllers\ProfileController@showprofile')->name
+('profile.index');
 
 // 設定
 Route::get('/setting',
@@ -122,12 +124,27 @@ Route::get('/reply/ungood/{content}', 'App\Http\Controllers\GoodController@ungoo
 
 Route::get('/switchGood','App\Http\Controllers\GoodController@switchGood')->name('switchGood');
 
+
 // 記事削除
 Route::post('/delete/{id}',
 'App\Http\Controllers\SummernoteController@delete')->name
 ('delete');
 
+//ユーザー削除
+Route::post('/users/delete/{id}',
+'App\Http\Controllers\UserController@delete')->name
+('user_delete');
+
+// ユーザー編集ページ表示
+Route::get('user/edit/{id}',
+'App\Http\Controllers\UserController@userEditShow')->name
+('userEditShow');
+
 // ユーザー編集
-Route::post('/user_edit',
+Route::post('/user_edit/{id}',
 'App\Http\Controllers\UserController@userEdit')->name
 ('userEdit');
+
+//ユーザーリスト表示
+Route::get('/users','App\Http\Controllers\UserController@users_show')->name
+('users_show');
